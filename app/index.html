@@ -1,0 +1,151 @@
+<!doctype html>
+<html class="no-js" lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>whack a mole</title>
+
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <!-- Place favicon.ico in the root directory -->
+
+    <!-- build:css styles/vendor.css -->
+    <!-- bower:css -->
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:css styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+
+    <!-- build:js scripts/vendor/modernizr.js -->
+    <script src="/bower_components/modernizr/modernizr.js"></script>
+    <!-- endbuild -->
+  </head>
+  <body class="d-flex flex-column">
+    <!--[if IE]>
+      <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <header class="header-block d-flex">
+      <h1>whack a mole</h1>
+    </header>
+    <main class="main-block d-flex flex-column">
+      <div class="inner-block">
+        <section class="d-none info-block">
+          <span>Score: <span id="score">0</span></span>
+          <span id="timer">00:00</span>
+        </section>
+        <section id="pre-panel" class="d-none game-block overlay-block pre-game">
+          <div class="d-flex flex-column overlay-inner-block">
+            <div class="d-flex header-block">
+              <h2>Game Info</h2>
+            </div>
+            <div class="body-block">
+              <div class="form-group">
+                <label for="player-name">Name</label>
+                <input type="text" class="form-control" id="player-name" maxlength="14" placeholder="Player 1">
+              </div>
+              <div class="form-group">
+                <div class="btn-group" data-toggle="buttons">
+                <label class="btn btn-secondary active">
+                  <input type="radio" name="difficulty" id="novice" autocomplete="off" checked>Novice
+                </label>
+                <label class="btn btn-secondary">
+                  <input type="radio" name="difficulty" id="veteran" autocomplete="off">Veteran
+                </label>
+                <label class="btn btn-secondary">
+                  <input type="radio" name="difficulty" id="master" autocomplete="off">Master
+                </label>
+              </div>
+              </div>
+            </div>
+            <div class="footer-block">
+              <button id="start-button" type="submit" class="button btn-lg btn-fill btn-blue">Start</button>
+              <div id="progress-block" class="progress-block d-none">
+                <p>Gathering Moles...</p>
+                <div class="progress">
+                  <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section id="run-panel" class="d-none game-block run-game">
+          <div class="mole-container"><div></div></div>
+          <div class="mole-container"><div></div></div>
+          <div class="mole-container"><div></div></div>
+          <div class="mole-container"><div></div></div>
+          <div class="mole-container"><div></div></div>
+          <div class="mole-container"><div></div></div>
+          <div class="mole-container"><div></div></div>
+          <div class="mole-container"><div></div></div>
+          <div class="mole-container"><div></div></div>
+        </section>
+        <section id="end-panel" class="d-none game-block overlay-block end-game">
+          <div class="d-flex flex-column overlay-inner-block">
+            <div class="d-flex header-block">
+              <h2>Times up!</h2>
+            </div>
+            <div class="body-block">
+              <h3>Score: <span id="final-score"></span></h3>
+              <table class="table table-sm">
+                <thead>
+                  <tr>
+                    <th></th>
+                    <th>Name</th>
+                    <th>Difficulty</th>
+                    <th>Score</th>
+                  </tr>
+                </thead>
+                <tbody id="hi-scores"></tbody>
+              </table>
+            </div>
+            <div class="d-flex footer-block">
+              <button id="reset-button" type="submit" class="button btn-lg btn-fill btn-blue">Retry</button>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+    <footer class="footer-block d-flex">
+      <p>♥ from the Yeoman team</p>
+    </footer>
+
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+    <script>
+      (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+      function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+      e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+      e.src='https://www.google-analytics.com/analytics.js';
+      r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+      ga('create','UA-XXXXX-X');ga('send','pageview');
+    </script>
+
+    <!-- build:js scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="/bower_components/jquery/dist/jquery.js"></script>
+    <script src="/bower_components/popper.js/dist/umd/popper.js"></script>
+    <script src="/bower_components/modernizr/modernizr.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:js scripts/plugins.js -->
+    <script src="/bower_components/bootstrap/js/dist/util.js"></script>
+    <script src="/bower_components/bootstrap/js/dist/alert.js"></script>
+    <script src="/bower_components/bootstrap/js/dist/button.js"></script>
+    <script src="/bower_components/bootstrap/js/dist/carousel.js"></script>
+    <script src="/bower_components/bootstrap/js/dist/collapse.js"></script>
+    <script src="/bower_components/bootstrap/js/dist/dropdown.js"></script>
+    <script src="/bower_components/bootstrap/js/dist/modal.js"></script>
+    <script src="/bower_components/bootstrap/js/dist/scrollspy.js"></script>
+    <script src="/bower_components/bootstrap/js/dist/tab.js"></script>
+    <script src="/bower_components/bootstrap/js/dist/tooltip.js"></script>
+    <script src="/bower_components/bootstrap/js/dist/popover.js"></script>
+    <!-- endbuild -->
+
+    <!-- build:js scripts/main.js -->
+    <script src="scripts/main.js"></script>
+    <!-- endbuild -->
+  </body>
+</html>

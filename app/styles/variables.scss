@@ -1,0 +1,149 @@
+//colors
+$bg-main-black: #25252D;
+$bg-workspace-black: #2D2D37;
+$bg-workspace-grey: #3F3F48;
+$bg-input-grey: #494953;
+$bg-separation-black: #373740;
+
+$main-text-color: #FAFDFE;
+$unfocused-text-color: #D3D7DD;
+$disabled-text-color: #B0B2B6;
+
+$action-blue: #39ACF8;
+$highlight-blue: #63BCF8;
+$focus-blue: #2298E6;
+$disabled-blue: #788B99;
+
+$action-red: #DE5555;
+$highlight-red: #F36668;
+$focus-red: #BF494B;
+$disabled-red: #998282;
+
+//font-sizes
+$text-xxl: 3.25rem;     //52px
+$text-xl: 2rem;         //32px
+$text-lg: 1.125rem;     //18px
+$text-md: 1rem;         //16px
+$text-sm: .875rem;      //14px
+$text-xs: .75rem;       //12px
+
+//font-families
+$os-family: "Open Sans", sans-serif;
+$proxima-family: "proxima-nova", sans-serif;
+$proxima-sb-family: "proxima-nova-sbold", sans-serif;
+$proxima-b-family: "proxima-nova-bold", sans-serif;
+
+//fonts
+$header1-font: 600 #{$text-xxl}/1.5rem $proxima-sb-family;
+$header2-font: 400 #{$text-xl}/1.5rem $proxima-sb-family;
+$header3-font: 400 #{$text-lg}/19px $os-family;
+$header4-font: 600 #{$text-sm}/.875rem $proxima-sb-family;
+$body-lg-font: 400 #{$text-lg}/1.5rem $os-family;
+$body-font: 400 #{$text-md}/1.375rem $os-family;
+$label-font: 400 #{$text-md} $os-family;
+$label-sm-font: 400 #{$text-xs} $os-family;
+$button-lg-font: 600 #{$text-md} $proxima-sb-family;
+$button-sm-font: 600 #{$text-sm} $proxima-sb-family;
+
+
+$redBtnColors: (action: $action-red, highlight: $highlight-red, focus: $focus-red, default-text-color: $main-text-color, disabled-text-color: $disabled-red);
+$blueBtnColors: (action: $action-blue, highlight: $highlight-blue, focus: $focus-blue, default-text-color: $main-text-color, disabled-text-color: $disabled-blue);
+$btnColors: (red: $redBtnColors, blue: $blueBtnColors);
+$btnStyles: (basic, fill, border);
+$buttonSizes: ((sm, 120px, 32px), (lg, 144px, 40px), (padding, auto, 32px), (full, 100%, 40px));
+
+.button{
+  padding: 0;
+  background: none;
+  border: none;
+  font: $button-lg-font;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  border-radius: 2px;
+
+  + .button{
+    margin-left: 8px;
+  }
+}
+
+// button styles
+@each $type, $width, $height in $buttonSizes{
+  .btn-#{$type}{
+    @if$type == 'padding'{
+      padding: 0 16px;
+    }
+    width: $width;
+    height: $height;
+  }
+}
+
+@each $style in $btnStyles{
+  .btn-#{$style}{ //basic-btn -style across same button type
+    @if $style == "border"{
+      background-color: $bg-workspace-grey;
+      &:hover{
+        background-color: $bg-workspace-black;
+      }
+      &:active{
+        background-color: $bg-main-black;
+      }
+      &:disabled{
+        background-color: $bg-workspace-grey;
+      }
+    }
+    @elseif $style == "fill"{
+      // &:disabled{
+      //   background: $bg-separation-black;
+      // }
+    }
+    @else {}
+
+    @each $color, $value in $btnColors{
+      &.btn-#{$color}{  //basic-btn.green-btn - style across same button type and color
+        transition: all 0.3s ease;
+
+        @if $style == "border"{
+          border: 1px solid map-get($value, action);
+          color: map-get($value, action);
+
+          &:disabled{
+            border: 1px solid map-get($value, disabled-text-color);
+            color: map-get($value, disabled-text-color);
+          }
+        }
+        @elseif $style == "fill"{
+          background: map-get($value, action);
+          color: map-get($value, default-text-color);
+
+          &:hover{
+            background: map-get($value, highlight);
+          }
+
+          &:active{
+            background: map-get($value, focus);
+          }
+
+          &:disabled{
+            color: map-get($value, disabled-text-color);
+            background: $bg-separation-black;
+          }
+        }
+        @else{
+          color: map-get($value, action);
+
+          &:hover{
+            color: map-get($value, highlight);
+          }
+
+          &:active{
+            color: map-get($value, focus);
+          }
+
+          &:disabled{
+            color: map-get($value, disabled-text-color);
+          }
+        }
+      }
+    }
+  }
+}
