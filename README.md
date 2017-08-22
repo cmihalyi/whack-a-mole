@@ -1,5 +1,7 @@
 # whack-a-mole
 
+
+
 ## Features
 
 * Functional whack a mole game that works on mobile devices
@@ -12,7 +14,6 @@
 
 
 ## Getting Started
-
 - Run `gulp serve` to preview and watch for changes
 - Run `gulp serve:test` to run the tests in the browser
 - Run `gulp` to build your webapp for production
@@ -20,5 +21,4 @@
 
 
 ## License
-
 [BSD license](http://opensource.org/licenses/bsd-license.php)
