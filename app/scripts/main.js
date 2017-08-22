@@ -53,11 +53,12 @@ var Game = class{
     this.difficulty;
     this.score = 0;
     this.scoreMultiplier;
-    this.hiScores = [];    
+    this.hiScores = [];
     this.progressBlock = document.getElementById('progress-block');
     this.startButton = document.getElementById('start-button');
     this.resetButton = document.getElementById('reset-button');
     this.prePanel = document.getElementById('pre-panel');
+    this.infoPanel = document.querySelector('.info-block');
     this.runPanel = document.getElementById('run-panel');
     this.endPanel = document.getElementById('end-panel');
     this.hiScoreList = document.getElementById('hi-scores');
@@ -136,7 +137,11 @@ var Game = class{
   }
 
   setPlayerName(val){
-    this.playerName = val;
+    if(val){
+      this.playerName = val;
+    }else{
+      this.playerName = "MoleKillah";
+    }
   }
 
   resetPlayerName(){
@@ -217,6 +222,7 @@ var Game = class{
     console.log('start game');
     this.prePanel.classList.add('d-none'); //hides pre panel
     this.runPanel.classList.remove('d-none'); //shows run panel
+    this.infoPanel.classList.remove('d-none'); //shows info panel
     this.gameTimer.startTimer();
     this.moleInterval = setInterval(this.activateMole.bind(this), this.moleFrequency);
   }
@@ -227,15 +233,16 @@ var Game = class{
     this.setHiScores();
     this.displayHiScores();
     this.runPanel.classList.add('d-none'); //hide run panel
+    this.infoPanel.classList.add('d-none'); //shows info panel
     this.endPanel.classList.remove('d-none'); //show end panel
     clearInterval(this.moleInterval); //stops timers
-    this.reset.addEventListener('click', this.resetButtonPressed.bind(this), {once: true});
+    this.resetButton.addEventListener('click', this.resetButtonPressed.bind(this), {once: true});
     console.log(this);
   }
   //happens between reset button and landing page appearing
   resetGame(){
     console.log('resetting game');
-    this.resetButtonPlayerName();
+    this.resetPlayerName();
     this.toggleTimerColor();
     this.progressBlock.querySelector('.progress-bar').setAttribute('style', 'width: 0%');
     this.endPanel.classList.add('d-none'); //hide end panel

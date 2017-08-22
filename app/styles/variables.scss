@@ -50,7 +50,7 @@ $redBtnColors: (action: $action-red, highlight: $highlight-red, focus: $focus-re
 $blueBtnColors: (action: $action-blue, highlight: $highlight-blue, focus: $focus-blue, default-text-color: $main-text-color, disabled-text-color: $disabled-blue);
 $btnColors: (red: $redBtnColors, blue: $blueBtnColors);
 $btnStyles: (basic, fill, border);
-$buttonSizes: ((sm, 120px, 32px), (lg, 144px, 40px), (padding, auto, 32px), (full, 100%, 40px));
+$buttonSizes: ((sm, 75px, 32px), (lg, 144px, 40px), (padding, auto, 32px), (full, 100%, 40px));
 
 .button{
   padding: 0;
