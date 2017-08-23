@@ -18,8 +18,18 @@
 * Get Babel implemented to modularize and 'import'
 
 
+# install
+
+With [npm](https://www.npmjs.com/) do:
+
+```
+npm install gulp
+```
+
 ## Getting Started
 
+- Run `bower install` to download package dependencies
+- Run `gulp serve` to preview and watch for changes
 - Run `gulp serve` to preview and watch for changes
 - Run `gulp serve:test` to run the tests in the browser
 - Run `gulp` to build your webapp for production
