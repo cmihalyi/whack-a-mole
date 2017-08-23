@@ -8,7 +8,7 @@
 * 3 levels of difficulty
 * Hi score list to challenge your friends (hi scores will be wiped out on a refresh since we are not using session or local storage)
 
-# install
+## Install
 
 With [npm](https://www.npmjs.com/) do:
 
