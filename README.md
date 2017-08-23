@@ -8,16 +8,6 @@
 * 3 levels of difficulty
 * Hi score list to challenge your friends (hi scores will be wiped out on a refresh since we are not using session or local storage)
 
-
-## ToDo
-
-* Accessibility still needs work.
-* Mobile works best in portrait mode. Layout issues in landscape mode on starting and ending screens
-* Implement transitions for different game phases
-* Animate header
-* Get Babel implemented to modularize and 'import'
-
-
 # install
 
 With [npm](https://www.npmjs.com/) do:
@@ -34,6 +24,15 @@ npm install gulp
 - Run `gulp serve:test` to run the tests in the browser
 - Run `gulp` to build your webapp for production
 - Run `gulp serve:dist` to preview the production build
+
+
+## ToDo
+
+* Accessibility still needs work.
+* Mobile works best in portrait mode. Layout issues in landscape mode on starting and ending screens
+* Implement transitions for different game phases
+* Animate header
+* Get Babel implemented to modularize and 'import'
 
 
 ## License
