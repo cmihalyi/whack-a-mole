@@ -1,57 +1,3 @@
-//colors
-$bg-main-black: #25252D;
-$bg-workspace-black: #2D2D37;
-$bg-workspace-grey: #3F3F48;
-$bg-input-grey: #494953;
-$bg-separation-black: #373740;
-
-$main-text-color: #FAFDFE;
-$unfocused-text-color: #D3D7DD;
-$disabled-text-color: #B0B2B6;
-
-$action-blue: #39ACF8;
-$highlight-blue: #63BCF8;
-$focus-blue: #2298E6;
-$disabled-blue: #788B99;
-
-$action-red: #DE5555;
-$highlight-red: #F36668;
-$focus-red: #BF494B;
-$disabled-red: #998282;
-
-//font-sizes
-$text-xxl: 3.25rem;     //52px
-$text-xl: 2rem;         //32px
-$text-lg: 1.125rem;     //18px
-$text-md: 1rem;         //16px
-$text-sm: .875rem;      //14px
-$text-xs: .75rem;       //12px
-
-//font-families
-$os-family: "Open Sans", sans-serif;
-$proxima-family: "proxima-nova", sans-serif;
-$proxima-sb-family: "proxima-nova-sbold", sans-serif;
-$proxima-b-family: "proxima-nova-bold", sans-serif;
-
-//fonts
-$header1-font: 600 #{$text-xxl}/1.5rem $proxima-sb-family;
-$header2-font: 400 #{$text-xl}/1.5rem $proxima-sb-family;
-$header3-font: 400 #{$text-lg}/19px $os-family;
-$header4-font: 600 #{$text-sm}/.875rem $proxima-sb-family;
-$body-lg-font: 400 #{$text-lg}/1.5rem $os-family;
-$body-font: 400 #{$text-md}/1.375rem $os-family;
-$label-font: 400 #{$text-md} $os-family;
-$label-sm-font: 400 #{$text-xs} $os-family;
-$button-lg-font: 600 #{$text-md} $proxima-sb-family;
-$button-sm-font: 600 #{$text-sm} $proxima-sb-family;
-
-
-$redBtnColors: (action: $action-red, highlight: $highlight-red, focus: $focus-red, default-text-color: $main-text-color, disabled-text-color: $disabled-red);
-$blueBtnColors: (action: $action-blue, highlight: $highlight-blue, focus: $focus-blue, default-text-color: $main-text-color, disabled-text-color: $disabled-blue);
-$btnColors: (red: $redBtnColors, blue: $blueBtnColors);
-$btnStyles: (basic, fill, border);
-$buttonSizes: ((sm, 75px, 32px), (lg, 144px, 40px), (padding, auto, 32px), (full, 100%, 40px));
-
 .button{
   padding: 0;
   background: none;
@@ -66,7 +12,6 @@ $buttonSizes: ((sm, 75px, 32px), (lg, 144px, 40px), (padding, auto, 32px), (full
   }
 }
 
-// button styles
 @each $type, $width, $height in $buttonSizes{
   .btn-#{$type}{
     @if$type == 'padding'{

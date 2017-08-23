@@ -1,0 +1,29 @@
+.mole-block{
+  overflow: hidden;
+  padding-top: 33%;
+  flex: 1 33%;
+  border: 1px solid $focus-blue;
+  transition: padding-top .15s ease-in-out;
+
+  div{
+    height: 100%;
+    background:  url('../images/mole.png') no-repeat;
+    background-size: cover;
+  }
+
+  &.active{
+    padding-top: 0;
+  }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {}

@@ -79,7 +79,7 @@ var Game = class{
     window.dispatchEvent(this.loadGameEvent);
     this.startButton.classList.add('d-none');
     this.progressBlock.classList.remove('d-none');
-    this.progressInterval = setInterval(this.updateProgressBar, 10);
+    this.progressInterval = setInterval(this.updateProgressBar, 20);
   }
 
   resetButtonPressed(e){
@@ -140,7 +140,7 @@ var Game = class{
     if(val){
       this.playerName = val;
     }else{
-      this.playerName = "MoleKillah";
+      this.playerName = 'MoleKillah';
     }
   }
 
@@ -215,11 +215,10 @@ var Game = class{
     this.setPlayerName(document.getElementById('player-name').value); //set players name
     this.setDifficulty(document.querySelector('[name="difficulty"]:checked').id); //set game difficulty value
     this.setDifficultyValues(); //set the game difficulty values
-    this.gameTimer = new Timer(document.getElementById('timer'), 5);  //instatiate a new game timer
+    this.gameTimer = new Timer(document.getElementById('timer'), 60);  //instatiate a new game timer
   }
   //happens while game is running
   runGame(){
-    console.log('start game');
     this.prePanel.classList.add('d-none'); //hides pre panel
     this.runPanel.classList.remove('d-none'); //shows run panel
     this.infoPanel.classList.remove('d-none'); //shows info panel
@@ -228,7 +227,6 @@ var Game = class{
   }
   //happens at the end page
   endGame(){
-    console.log('end game');
     document.getElementById('final-score').textContent = this.getScore();
     this.setHiScores();
     this.displayHiScores();
@@ -237,11 +235,9 @@ var Game = class{
     this.endPanel.classList.remove('d-none'); //show end panel
     clearInterval(this.moleInterval); //stops timers
     this.resetButton.addEventListener('click', this.resetButtonPressed.bind(this), {once: true});
-    console.log(this);
   }
   //happens between reset button and landing page appearing
   resetGame(){
-    console.log('resetting game');
     this.resetPlayerName();
     this.toggleTimerColor();
     this.progressBlock.querySelector('.progress-bar').setAttribute('style', 'width: 0%');
@@ -263,9 +259,9 @@ var Game = class{
           for (var i = 0; i < this.hiScores.length; i++){
           	if(this.getScore() >= this.hiScores[i].score){
               this.hiScores.splice(i, 0, {
-                "name" : this.getPlayerName(),
-                "difficulty": this.getDifficulty(),
-                "score": this.getScore()
+                'name' : this.getPlayerName(),
+                'difficulty': this.getDifficulty(),
+                'score': this.getScore()
               });
               //break loop
               break;
@@ -276,19 +272,18 @@ var Game = class{
           for (var i = 0; i < this.hiScores.length; i++){
           	if(this.getScore() >= this.hiScores[i].score){
               this.hiScores.splice(i, 0, {
-                "name" : this.getPlayerName(),
-                "difficulty": this.getDifficulty(),
-                "score": this.getScore()
+                'name' : this.getPlayerName(),
+                'difficulty': this.getDifficulty(),
+                'score': this.getScore()
               });
               //break loop
               break;
             }
             else{
-              console.log('score didnt beat.  add to bottom of array. array isnt full');
               this.hiScores.splice(this.hiScores.length -1, 0, {
-                "name" : this.getPlayerName(),
-                "difficulty": this.getDifficulty(),
-                "score": this.getScore()
+                'name' : this.getPlayerName(),
+                'difficulty': this.getDifficulty(),
+                'score': this.getScore()
               });
               //break loop
               break;
@@ -301,18 +296,16 @@ var Game = class{
           this.hiScores.pop();
         }
       }else{
-        console.log('array is empty first item in');
         this.hiScores.splice(0, 0, {
-          "name" : this.getPlayerName(),
-          "difficulty": this.getDifficulty(),
-          "score": this.getScore()
+          'name' : this.getPlayerName(),
+          'difficulty': this.getDifficulty(),
+          'score': this.getScore()
         });
       }
     }
   }
 
   displayHiScores(){
-    console.log('display length: ' + this.hiScores.length);
     for (var i = 0; i < this.hiScores.length; i++){
       var row = document.createElement('tr');
       var pos = document.createElement('td');
@@ -409,7 +402,7 @@ var Game = class{
   }
 }
 
-var whackamole = new Game();
+let whackamole = new Game();
 window.addEventListener('timeWarning', (e) => {whackamole.toggleTimerColor()});
 window.addEventListener('timeDone', (e) => whackamole.gameState = 'end');
 window.addEventListener('preGame', (e) => {whackamole.setGameState(e.detail.gameState); whackamole.manageGameState()});

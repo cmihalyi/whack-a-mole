@@ -1,0 +1,28 @@
+.info-block{
+  display: flex;
+  margin: 2px 0 1rem 0;
+  align-items: center;
+  justify-content: space-between;
+
+  > span{
+    font: $header2-font;
+    color: $unfocused-text-color;
+    transition: color .15s ease-in-out;
+
+    &.warning{
+      color: $highlight-red;
+    }
+  }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {}

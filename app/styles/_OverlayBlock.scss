@@ -1,0 +1,65 @@
+.overlay-block{
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: $bg-workspace-grey;
+  border: 2px solid $action-red;
+  border-radius: 4px;
+
+  .overlay-inner-block{
+    margin: 0 12px;
+    flex: 1;
+  }
+
+  .header-block,
+  .body-block,
+  .footer-block{
+    // margin: 0;
+  }
+
+  .header-block,
+  .footer-block{
+    flex-basis: 20%;
+  }
+
+  .body-block{
+    flex: 1;
+  }
+
+  .footer-block{
+    align-items: flex-start;
+    text-align: center;
+  }
+
+  label{
+    color: $main-text-color;
+  }
+
+  &.pre-game{
+
+    .overlay-inner-block{
+      margin: 0 23px;
+    }
+  }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+  
+  .overlay-block{
+    .footer-block{
+      align-items: center;
+    }
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {}

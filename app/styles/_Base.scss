@@ -1,0 +1,89 @@
+// bower:scss
+@import "bower_components/bootstrap/scss/bootstrap.scss";
+@import "variables.scss";
+
+
+body{
+  height: 100vh;
+  margin: 0;
+  background-color: $bg-main-black;
+}
+
+h1{
+  font: $header1-font;
+  font-size: 2.5rem;
+  color: $main-text-color;
+}
+
+h2{
+  margin-bottom: 0;
+  font: $header2-font;
+  color: $unfocused-text-color;
+}
+
+h3{
+  margin-bottom: 0;
+  font: $header3-font;
+  color: $main-text-color;
+  text-transform: uppercase;
+}
+
+h4{
+  font: $header4-font;
+  color: $main-text-color;
+}
+
+header,
+main,
+footer{
+  margin: 0 1rem;
+}
+
+.table{
+  margin-top: 5%;
+
+  thead{
+
+    th{
+      font: $header3-font;
+      color: $main-text-color;
+      text-align: center;
+      border-bottom: 1px solid $disabled-text-color;
+    }
+  }
+
+  tbody{
+    td{
+      padding: 0 .3rem;
+      font: $body-lg-font;
+      color: $focus-blue;
+      text-align: center;
+      border-top: none;
+
+      &:first-child{
+        text-align: center;
+      }
+    }
+  }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+
+  .table{
+    tbody{
+      td{
+        padding: .25rem;
+      }
+    }
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {}
